@@ -14,6 +14,8 @@ export class AppComponent {
   feelsLike: number = null;
   humidity: number = null;
   baseUrl: string = 'https://api.openweathermap.org/data/2.5/weather?q=';
+  
+  // PLEASE CREATE YOUR OWN KEY. THIS IS ONLY FOR DEMO PURPOSES.
   key: string = '&appid=5fa988728912c96f18d5abbb35a0a12f';
 
   // Map
