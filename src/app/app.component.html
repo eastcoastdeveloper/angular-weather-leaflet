@@ -12,7 +12,12 @@
   <div>
     <div class="search" [ngClass]="{ 'centered-search': fahrenheit === null }">
       <p class="heading" *ngIf="fahrenheit === null">City Weather & Location</p>
-      <input type="text" #cityName placeholder="Enter a US city" (keydown)="onKeyDownEvent($event)" />
+      <input
+        type="text"
+        #cityName
+        placeholder="Enter a US city"
+        (keydown)="onKeyDownEvent($event)"
+      />
       <button type="buton" (click)="getSingleDay()">Get Forecast</button>
       <button type="buton" (click)="clearData()">Clear</button>
     </div>
