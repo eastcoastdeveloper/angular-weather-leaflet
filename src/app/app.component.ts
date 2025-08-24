@@ -42,7 +42,7 @@ export class AppComponent {
       zoom: 6,
       layers: [
         tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-          maxZoom: 18,
+          maxZoom: 30,
           attribution: 'Map data © OpenStreetMap contributors',
         }),
       ],
@@ -82,7 +82,6 @@ export class AppComponent {
       });
   }
 
-  // 🔹 Helper function for reusability
   private toFahrenheit(kelvin: number): number {
     return Math.ceil(((kelvin - 273.15) * 9) / 5 + 32);
   }
