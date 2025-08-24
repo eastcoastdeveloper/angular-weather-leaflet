@@ -59,26 +59,32 @@ export class AppComponent {
   getSingleDay() {
     this.http
       .get<any>(this.baseUrl + this.cityName.nativeElement.value + this.key)
-      .subscribe(
-        (weatherData) => {
+      .subscribe({
+        next: (weatherData) => {
           this.error = false;
-          (this.country = weatherData.sys.country),
-            (this.fahrenheit =
-              Math.ceil((weatherData.main.temp - 273.15) * 1.8) + 32);
+          this.country = weatherData.sys.country;
+
+          this.fahrenheit = this.toFahrenheit(weatherData.main.temp);
           this.humidity = weatherData.main.humidity;
-          this.feelsLike =
-            Math.ceil((weatherData.main.feels_like - 273.15) * 1.8) + 32;
+          this.feelsLike = this.toFahrenheit(weatherData.main.feels_like);
+
           this.weatherData = weatherData;
           this.setMarker(this.weatherData);
-          if (this.map != undefined) {
+
+          if (this.map !== undefined) {
             this.map.panTo(new L.LatLng(this.latitude, this.longitude));
           }
         },
-        (error) => {
+        error: () => {
           this.error = true;
           this.clearData();
-        }
-      );
+        },
+      });
+  }
+
+  // 🔹 Helper function for reusability
+  private toFahrenheit(kelvin: number): number {
+    return Math.ceil(((kelvin - 273.15) * 9) / 5 + 32);
   }
 
   setMarker(data: any) {
