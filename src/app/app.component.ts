@@ -94,13 +94,14 @@ export class AppComponent {
       icon({
         iconSize: [25, 41],
         iconAnchor: [13, 41],
-        iconUrl: '/assets/leaflet/marker-icon-2x.png',
+        iconUrl: 'assets/leaflet/marker-icon-2x.png',
       })
     );
     marker.bindTooltip(this.weatherData.name).openTooltip();
   }
 
   onKeyDownEvent(evt: any) {
+    console.log(evt)
     if (evt.code === 'Enter') {
       this.getSingleDay();
       this.clearData();
