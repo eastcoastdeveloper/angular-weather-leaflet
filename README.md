@@ -1,3 +1,3 @@
-# angular-weather-leaflet
+# Angular App w/ Open Weather API and Leaflet
 
-[Edit on StackBlitz ⚡️](https://stackblitz.com/edit/angular-weather-component)
+ng serve from package.json
