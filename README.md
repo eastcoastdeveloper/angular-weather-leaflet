@@ -1,3 +1,3 @@
-# Angular App w/ Open Weather API and Leaflet
+# Angular App w/ Open Weather API & Leaflet
 
 ng serve from package.json
